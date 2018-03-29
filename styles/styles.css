@@ -1,0 +1,178 @@
+.main
+  {
+    width: 100%;
+    height: auto;
+    margin: auto;
+  }
+header
+{
+  width: 1000px;
+  height: 100px;
+  margin: auto;
+  background: yellow;
+}
+
+/* container*/
+
+#container_wrapper
+{
+  width: 100%;
+
+  background-color: gray;
+
+}
+#contenu_area
+{
+  width: 100%;
+  /*height: 800px;*/
+  background-color: red;
+}
+#sidebar
+{
+  width: 200px;
+  height:950px;
+  background-color: black;
+  float:left;
+  top: 15px;
+}
+.sidebar_title
+{
+  background: white;
+  color: black;
+  font-size: 22px;
+  padding: 5px;
+  text-align: center;
+}
+
+/*footer*/
+footer
+{
+  width: 100%;
+  height: 100px;
+  clear: both;
+  background-color: blue;
+
+}
+.menuBar
+{
+  width: 100%;
+  height: 100px;
+  background: gray;
+  color:white;
+}
+/*la barre de navigation */
+a:hover {
+  text-decoration: none;
+ }
+ nav ul li
+{
+ display: inline;
+ list-style: none;
+ text-transform: uppercase;
+
+}
+ nav ul li a {
+   list-style: none;
+   text-decoration: none;
+   color: black;
+   font-size: 18px;
+   display: inline-block;
+   justify-content: space-around;
+   padding: 8px;
+   margin: 5px;
+
+  }
+.recherche
+{
+  background: gray;
+  text-align: right;
+  padding-bottom: 5px;
+  display:flex;
+  justify-content: space-around;
+  width: auto;
+
+}
+form
+{
+  width:-moz-max-content;
+}
+#shopping
+{
+  background: black;
+  width: 70%;
+  height: 43px;
+  border-radius: 3px;
+  color: white;
+  padding-right: 4px;
+
+}
+input[type=text]{
+  color:black;
+}
+#cats li
+{
+  list-style: none;
+  display: block;
+  padding-top: 5px;
+  margin-top: 8px;
+}
+#cats a
+{
+  color: white;
+  margin: 4px;
+  text-align: center;
+  padding:7px;
+  font-size: 18px;
+  text-transform: uppercase;
+
+}
+
+/*affichage des produits main page*/
+.produits_box
+{
+  width: 780px;
+  text-align: center;
+  margin-left: 35px;
+  margin-bottom: 10px;
+}
+.single_produit
+{
+  float: left;
+  margin-left: 25px;
+  padding: 10px;
+}
+img
+{
+  width: 280px;
+  height: 280px;
+}
+#add
+{
+  float: right;
+}
+.describe
+{
+  width: 500px;
+  height: 200px;
+text-align: center;
+display: flex;
+justify-content: space-around;
+align-items: center;
+}
+h3
+{
+  text-transform: uppercase;
+}
+.show_details
+{
+  display: flex;
+  justify-content: space-between;
+
+}
+.in_details
+{
+  width: 75%;
+  text-align: center;
+}
+
+/*niveau popup*/

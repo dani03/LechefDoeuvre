@@ -10,4 +10,3 @@ function database()
   }
   return $connexion;
 }
-?>

@@ -1,15 +1,6 @@
 <?php
 // connexion a la base de données
-function database()
-{
-  try {
-    $connexion = new PDO('mysql:host=localhost;dbname=CDEcommerce;charset=utf8', 'phpmyadmin','root');
-
-  } catch (Exception $e) {
-    die($e->getMessage());
-  }
-  return $connexion;
-}
+require "database.php";
 // on recupere les categories
 
 function getCategories()
@@ -68,7 +59,7 @@ function getProducts()
             <p align='center'><strong> ".$product_prix." € </strong></p>
 
             <a href='details.php?details=".$product_id."' style=float:left' class='details'><button class='btn btn-deflaut'>Details</button></a>
-            <a href='index.php?id=".$product_id."' style=float:right'><button id='add' class='btn btn-info'>ajouter au panier</button></a>
+            <a href='index.php?panier=".$product_id."' style=float:right'><button id='add' class='btn btn-info'>ajouter au panier</button></a>
             </section>
             </div>  ";
           }
@@ -108,7 +99,7 @@ function getDetails()
           <p align='center'><strong> prix: " .$product_prix." € </strong></p>
             <section id='button_in_details'>
                 <a href='index.php' style=float:left' class='details'><button class='btn btn-deflaut'>retour</button></a>
-                <a href='index.php?id=".$product_id."' style=float:right'><button id='add' class='btn btn-info'>ajouter au panier</button></a>
+                <a href='index.php?panier=".$product_id."' style=float:right'><button id='add' class='btn btn-info'>ajouter au panier</button></a>
             </section>
           </div>  ";
         }
@@ -145,7 +136,7 @@ function getCategorieProduct()
           <section align='center'>
           <p align='center'><strong>".$product_prix." € </strong></p>
           <a href='details.php?details=".$product_id."' style=float:left' class='details'><button class='btn btn-deflaut'>Details</button></a>
-          <a href='index.php?id=".$product_id."' style=float:right'><button id='add' class='btn btn-info'>ajouter au panier</button></a>
+          <a href='index.php?panier=".$product_id."' style=float:right'><button id='add' class='btn btn-info'>ajouter au panier</button></a>
           </section>
           </div>  ";
         }
@@ -181,7 +172,7 @@ function getMarqueProduct()
                   <section align='center'>
                         <p align='center'><strong>".$product_prix." € </strong></p>
                         <a href='details.php?details=".$product_id."' style=float:left' class='details'><button class='btn btn-deflaut'>Details</button></a>
-                        <a href='index.php?id=".$product_id."' style=float:right'><button id='add' class='btn btn-info'>ajouter au panier</button></a>
+                        <a href='index.php?panier=".$product_id."' style=float:right'><button id='add' class='btn btn-info'>ajouter au panier</button></a>
                   </section>
               </div>  ";
         }
@@ -190,7 +181,7 @@ function getMarqueProduct()
 
 
 
-// la fonction pour afficher tout les produits
+// -----------la fonction pour afficher tout les produits----------------------
 
 
   function ToutProduits()
@@ -214,8 +205,89 @@ function getMarqueProduct()
       <section align='center'>
         <p align='center'><strong> ".$product_prix." € </strong></p>
         <a href='details.php?details=".$product_id."' style=float:left' class='details'><button class='btn btn-deflaut'>Details</button></a>
-        <a href='index.php?id=".$product_id."' style=float:right'><button id='add' class='btn btn-info'>ajouter au panier</button></a>
+        <a href='index.php?panier=".$product_id."' style=float:right'><button id='add' class='btn btn-info'>ajouter au panier</button></a>
       </section>
       </div>  ";
     }
   }
+// ---------------------la function suivante est le resultat pour une recherche faite dans barre-----------
+
+
+if (isset($_GET['find']))
+{
+  function resultRecherche()
+  {
+    $recherche = $_GET['mot_cles'];
+    $db = database();
+    $request = $db->query("SELECT * FROM produits WHERE product_motcles like '%$recherche%'");
+    while ($donnees = $request->fetch())
+    {
+      $product_id = $donnees['product_id'];
+      $product_titre = $donnees['product_titre'];
+      $product_marque = $donnees['product_marque'];
+      $product_cat = $donnees['product_cat'];
+      $product_prix = $donnees['product_prix'];
+      $product_images = $donnees['product_image'];
+
+
+      echo "
+      <div class='single_produit'>
+      <h3>".$product_titre."</h3>
+      <img src='espace_admin/product_images/".$product_images."'>
+      <section align='center'>
+      <p align='center'><strong> ".$product_prix." € </strong></p>
+      <a href='details.php?details=".$product_id."' style=float:left' class='details'><button class='btn btn-deflaut'>Details</button></a>
+      <a href='index.php?panier=".$product_id."' style=float:right'><button id='add' class='btn btn-info'>ajouter au panier</button></a>
+      </section>
+      </div>  ";
+    }
+  }
+}
+//------------------------------------------- niveau panier-----------------------------------------------
+// on recupere l'adresse ip pour chaque utilisateur on pouvait aussi le faire avec les cookies
+
+
+function panier()
+{
+  if (isset($_GET['panier'])) {
+    $db = database();
+    $produit_panier = $_GET['panier'];
+    // ici on fait une requete qui verifie que l'adresse ip de l'ulisateur est le même
+    $requete_ckeck = $db->prepare("SELECT * FROM panier WHERE prod_id='{$produit_panier}'");
+    $requete_ckeck->execute(array());
+      $count = $requete_ckeck->rowCount();
+    if ($count > 0) {
+      echo "";
+    }
+    else
+    {
+      $insertion = $db->prepare('INSERT INTO panier(prod_id) VALUES(:prod_id)');
+      $insertion->execute(array(
+            'prod_id' => $produit_panier
+      ));
+
+      header('location:tous_produits.php');
+
+    }
+  }
+
+}
+
+// creation du panier
+
+   function creationPanier()
+   {
+       if(!isset($_SESSION['panier']))
+       {
+         $_SESSION['panier'] = array();
+         $_SESSION['panier']['product_id'] = array();
+         $_SESSION['panier']['quatité'] = array();
+         $_SESSION['panier']['product_prix'] = array();
+       }
+       return true;
+   }
+// ajouter un article donc quand on clique sur le boutton << ajouter au panier >>
+ function AjouterArticle()
+ {
+
+ }

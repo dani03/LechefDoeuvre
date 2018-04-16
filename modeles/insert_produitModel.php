@@ -36,7 +36,7 @@ function ajouterProduit()
      $product_image_tmp = $_FILES['product_image']['tmp_name'];
 
     //  on upload l'image dans le dossier cree(product_images)
-     move_uploaded_file($product_image_tmp,"vues/product_images/$product_images_name");
+     move_uploaded_file($product_image_tmp,"espace_admin/product_images/$product_images_name");
     //  on insert dans la base de données
          $insertion_bdd = $bdd->prepare('INSERT INTO produits(product_titre,product_cat,product_prix,product_marque,product_descrip,product_image,product_motcles) VALUES(:product_titre, :product_cat, :product_prix, :product_marque, :product_descrip, :product_image, :product_motcles)');
          $insertion_bdd->execute(array(

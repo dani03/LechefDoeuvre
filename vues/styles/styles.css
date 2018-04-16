@@ -98,11 +98,11 @@ form
 }
 #shopping
 {
-  background: black;
+
   width: 70%;
   height: 43px;
   border-radius: 3px;
-  color: white;
+  color: black;
   padding-right: 4px;
 
 }
@@ -154,10 +154,10 @@ img
 {
   width: 500px;
   height: 200px;
-text-align: center;
-display: flex;
-justify-content: space-around;
-align-items: center;
+  text-align: center;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
 }
 h3
 {
@@ -175,4 +175,13 @@ h3
   text-align: center;
 }
 
-/*niveau popup*/
+/*niveau formulaire d'inscription*/
+.inscriptionBG
+{
+  background: rgba(0, 0, 0, 0.3);
+
+}
+.blue
+{
+  color: red;
+}

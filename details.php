@@ -1,7 +1,8 @@
 <?php
 
- require("modeles/model.php");
+require_once("controllers/marquesController.php");
  require "vues/headPage.php";
+ require_once("controllers/categoriesController.php");
 ?>
 
 
@@ -10,17 +11,31 @@
 
       <div id="container_wrapper">
 
-        <?php panier();?>
+
           <div id="sidebar">
             <div class="sidebar_title">categories</div>
             <ul id="cats">
-              <?php getCategories(); ?>
+              <?php
+                  $categories = afficherCategories();
+              foreach ($categories as $categorie)
+                {
+                  $categorie_id = $categorie['categorie_id'];
+                  $categorie_titre = $categorie['categorie_titre'];?>
+                  <li><a href='index.php?categorie="<?= $categorie_id ?>"'><?= $categorie_titre ?></a></li>
+         <?php } ;?>
             </ul>
             <!-- marques -->
 
             <div class="sidebar_title">marques</div>
             <ul id="cats">
-            <?php  getMarques(); ?>
+            <?php
+              $marques = afficherMarques();
+               foreach ($marques as $marque)
+               {
+                 $marque_id = $marque['marque_id'];
+                 $marque_titre = $marque['marque_titre']; ?>
+                 <li><a href='index.php?marque=<?= $marque_id ?>'><?= $marque_titre ?></a></li>
+            <?php } ; ?>
             </ul>
           </div>
 

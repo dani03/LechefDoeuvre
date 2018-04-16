@@ -5,7 +5,7 @@
 ?>
 
           <div id="contenu_area">
-            <?php panier();  resultRecherche(); ?>
+            <?php resultRecherche(); ?>
 
           </div>
       </div>

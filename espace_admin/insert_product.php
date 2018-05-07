@@ -43,6 +43,11 @@ require("../vues/link.php");
            </tr>
 
            <tr>
+             <td align="center"><strong>publier en tant que:</strong></td>
+             <td><input class="form-control" type="text" name="product_published_by" value="" placeholder="ex: administrateur"></td>
+           </tr>
+
+           <tr>
              <td align="center"><strong>description du produit:</strong></td>
              <td><textarea name="product_descrip" rows="8" cols="80"></textarea></td>
 
@@ -56,6 +61,10 @@ require("../vues/link.php");
            <tr>
              <td align="center"><strong>prix du produit:</strong></td>
              <td><input class="form-control" type="number" name="product_prix" value="" placeholder="ajouter une prix"></td>
+           </tr>
+           <tr>
+             <td align="center"><strong>quantité :</strong></td>
+             <td><input class="form-control" type="number" name="product_quantite" value="" placeholder="ajouté une quantité"></td>
 
            </tr>
 

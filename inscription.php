@@ -1,4 +1,5 @@
 <?php
+session_start();
 require "vues/link.php";
 require "vues/headPage.php";
 require("controllers/inscriptionController.php");
@@ -76,3 +77,4 @@ require("controllers/inscriptionController.php");
 
   </div>
 </div>
+<script type="text/javascript" src="vues/styles/javascript/script.js"></script>

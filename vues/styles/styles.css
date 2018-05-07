@@ -6,12 +6,20 @@
   }
 header
 {
-  width: 1000px;
+  width: 80%;
   height: 100px;
   margin: auto;
-  background: yellow;
+border: 2px solid gray;
+  border-radius: 63px;
+  text-align: center;
+  text-transform: uppercase;
+  margin-top: 4px;
+  margin-bottom: 1px;
 }
-
+header h1
+{
+  padding-top: 10px;
+}
 /* container*/
 
 #container_wrapper
@@ -56,7 +64,7 @@ footer
 .menuBar
 {
   width: 100%;
-  height: 100px;
+  height: 130px;
   background: gray;
   color:white;
 }
@@ -89,7 +97,7 @@ a:hover {
   padding-bottom: 5px;
   display:flex;
   justify-content: space-around;
-  width: auto;
+  width: 100%;
 
 }
 form
@@ -99,7 +107,7 @@ form
 #shopping
 {
 
-  width: 70%;
+  width: 25%;
   height: 43px;
   border-radius: 3px;
   color: black;
@@ -127,6 +135,10 @@ input[type=text]{
 
 }
 
+header
+{
+
+}
 /*affichage des produits main page*/
 .produits_box
 {
@@ -184,4 +196,42 @@ h3
 .blue
 {
   color: red;
+}
+/*niveau profil*/
+.photoDeProfil
+{
+  width: 250px;
+  height: 250px;
+  background: blue;
+
+
+}
+.formulaireUser
+{
+  width: 50%;
+  text-align: center;
+   margin-left: 20%;
+  margin-top: 26px;
+  box-shadow: 5px 10px #888888;
+}
+.formulaireUser form
+{
+  margin-left: 25%;
+}
+input[type=file]
+{
+  border: none;
+}
+/*espace admin*/
+#sidebar li a{
+  color:white;
+}
+#sidebar
+{
+  background-color: gray;
+}
+.mainAdmin
+{
+  background-color: yellow;
+  width: 60%;
 }

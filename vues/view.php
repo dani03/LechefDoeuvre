@@ -52,7 +52,6 @@
                     <img src='espace_admin/product_images/".$product_images."'>
                     <section align='center'>
                     <p align='center'><strong> ".$product_prix." € </strong></p>
-
                     <a href='details.php?details=".$product_id."' style=float:left' class='details'><button class='btn btn-deflaut'>Details</button></a>
                     <a href='index.php?panier=" .$product_id."' style=float:right'><button id='add' class='btn btn-info ".$product_id."'>ajouter au panier</button></a>
                     </section>

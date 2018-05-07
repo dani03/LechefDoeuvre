@@ -1,5 +1,5 @@
 <?php
-
+session_start();
 require_once("controllers/marquesController.php");
  require "vues/headPage.php";
  require_once("controllers/categoriesController.php");
@@ -45,5 +45,6 @@ require_once("controllers/marquesController.php");
       </div>
       <footer> <h2 style="text-align:center;padding-top:30px">this is the footer  	&copy;</h2></footer>
     </main>
+    <script type="text/javascript" src="vues/styles/javascript/script.js"></script>
   </body>
 </html>

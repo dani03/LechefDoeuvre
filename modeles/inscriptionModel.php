@@ -46,5 +46,5 @@ function isPhone($var)
    else {
      $message = "votre compte n'a pas été crée";
    }
-    echo $message;
+    return $message;
  }

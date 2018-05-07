@@ -151,11 +151,10 @@ if (isset($_GET['find']))
       <section align='center'>
       <p align='center'><strong> ".$product_prix." € </strong></p>
       <a href='details.php?details=".$product_id."' style=float:left' class='details'><button class='btn btn-deflaut'>Details</button></a>
-      <a href='index.php?panier=".$product_id."' style=float:right'><button id='add' class='btn btn-info' onClick='post();'>ajouter au panier</button></a>
+      <a href='index.php?panier=".$product_id."' style=float:right'><button id='add' class='btn btn-info'>ajouter au panier</button></a>
       </section>
       </div>  ";
     }
   }
 }
-//------------------------------------------- niveau panier-----------------------------------------------
-//ici nous allons recuperer les produit que met l'utilisateur dans le panier
+//------------------------------------------- -----------------------------------------------

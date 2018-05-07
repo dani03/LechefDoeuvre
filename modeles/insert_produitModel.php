@@ -1,5 +1,5 @@
 <?php
-  require "database.php";
+  // require "database.php";
 
     function insert_produit()
     {
@@ -29,6 +29,8 @@ function ajouterProduit()
      $product_prix = $_POST['product_prix'];
      $product_motcles = $_POST['product_motcles'];
      $product_descrip = $_POST['product_descrip'];
+     $product_quantite = $_POST['product_quantite'];
+     $product_published_by = $_POST['product_published_by'];
 
 
     //  on recupere l'images
@@ -36,9 +38,9 @@ function ajouterProduit()
      $product_image_tmp = $_FILES['product_image']['tmp_name'];
 
     //  on upload l'image dans le dossier cree(product_images)
-     move_uploaded_file($product_image_tmp,"espace_admin/product_images/$product_images_name");
+     move_uploaded_file($product_image_tmp,"../espace_admin/product_images/$product_images_name");
     //  on insert dans la base de données
-         $insertion_bdd = $bdd->prepare('INSERT INTO produits(product_titre,product_cat,product_prix,product_marque,product_descrip,product_image,product_motcles) VALUES(:product_titre, :product_cat, :product_prix, :product_marque, :product_descrip, :product_image, :product_motcles)');
+         $insertion_bdd = $bdd->prepare('INSERT INTO produits(product_titre,product_cat,product_prix,product_marque,product_descrip,product_image,product_motcles,product_quantite,product_published_by) VALUES(:product_titre, :product_cat, :product_prix, :product_marque, :product_descrip, :product_image, :product_motcles,:product_quantite,:product_published_by)');
          $insertion_bdd->execute(array(
            'product_titre' => $product_titre,
            'product_cat' => $product_categorie,
@@ -46,7 +48,9 @@ function ajouterProduit()
            'product_marque' => $product_marque,
            'product_descrip' => $product_descrip,
            'product_image' => $product_images_name,
-           'product_motcles' => $product_motcles
+           'product_motcles' => $product_motcles,
+           'product_quantite' => $product_quantite,
+           'product_published_by' => $product_published_by
      ));
      echo "<script>alert('le produit a bien été ajouté!')</script>";
   }

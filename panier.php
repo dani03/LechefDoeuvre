@@ -1,10 +1,7 @@
 <?php
 session_start();
- require("functions/functions.php");
+require("controllers/panierController.php");
+require_once("vues/panierVue.php");
 
- if(isset($_GET['panier']))
- {
-   $produit_id = $_GET['panier'];
-   
- }
- ?>
+removeArticle();
+deleteDuPanier();

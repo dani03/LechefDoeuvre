@@ -3,6 +3,7 @@
 
   if (isset($_POST['submitedInscription']))
   {
+    $erreur = '';
     $user_name = htmlspecialchars($_POST['firstname']);
     $mail = htmlspecialchars($_POST['email']);
     $mot_de_passe = sha1($_POST['pass']);
@@ -63,4 +64,5 @@
     {
       $erreur ="tous les champs requis ne sont pas completés";
     }
+    return $erreur;
   }

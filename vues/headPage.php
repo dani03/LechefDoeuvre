@@ -40,7 +40,7 @@ require "link.php"; ?>
             <section id="shopping">
               <span>bienvenue!!!visualiser vos articles</span>
               <a href="panier.php"> panier <span>icon</span> </a>
-              <b><p>prix total:<?= $_SESSION['total_items']?> € ; total articles:  €</p></b>
+              <b><p>prix total:€ ; total articles:  €</p></b>
             </section>
           </div>
         </ul>

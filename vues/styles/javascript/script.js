@@ -1,7 +1,11 @@
-
 $(document).ready(function(){
-  $("#addArticle").toogle(funtion(){
-    $(".formulaireUser").hide();
-  });
+  var scrollLink = $(".scroll");
+  // on commence le scroll smooth
+  scrollLink.click(function(e){
+    e.preventDefault();
+    $("body,html").animate({
+       scrollTop: $(this.hash).offset().top
+    }, 1000)
 
-});
+  })
+})

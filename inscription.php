@@ -10,7 +10,7 @@ require("controllers/inscriptionController.php");
   <h1 align="center">inscription</h1>
   <div class="row">
     <div class="inscriptionBG">
-      <form class="formulaire" action="inscription.php" method="post" id='contact-form' role='form' enctype="multipart/form-data">
+      <form class="formulaire" action="inscription.php" method="post" id='contact-formInscrip' role='form' enctype="multipart/form-data">
         <div class="row" style="margin-left:-39px">
           <div class="">
             <label for="firstname"> pseudo/nom: <span class="blue">*</span></label>

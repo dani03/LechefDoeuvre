@@ -2,10 +2,10 @@
 
       <!-- header -->
 
-      <div id="container_wrapper">
+      <div class="container-fluid" id=" container_wrapper">
 
-
-          <div id="sidebar">
+        <div  class="row" id="contenu_area" >
+          <nav class="col-xs-3 col-sm-4 col-md-3 col-lg-4"id="sidebar">
             <div class="sidebar_title">categories</div>
             <ul id="cats">
               <?php
@@ -30,9 +30,9 @@
                  <li><a href='index.php?marque=<?= $marque_id ?>'><?= $marque_titre ?></a></li>
             <?php } ;?>
             </ul>
-          </div>
+          </nav>
 
-          <div id="contenu_area">
+
             <?php
             // si aucune categories n'est selectionnée on appelle la fonction suivante:
                 $Products = afficherProducts();
@@ -47,9 +47,9 @@
 
 
                     echo "
-                    <div class='single_produit'>
+                    <div class='col-xs-9 col-sm-4 col-md-3 single_produit'>
                     <h3>".$product_titre."</h3>
-                    <img src='espace_admin/product_images/".$product_images."'>
+                    <img  src='espace_admin/product_images/".$product_images."'>
                     <section align='center'>
                     <p align='center'><strong> ".$product_prix." € </strong></p>
                     <a href='details.php?details=".$product_id."' style=float:left' class='details'><button class='btn btn-deflaut'>Details</button></a>
@@ -76,7 +76,7 @@
                        echo "
                        <div class='single_produit'>
                        <h3>".$product_titre."</h3>
-                       <img src='espace_admin/product_images/".$product_images."'>
+                       <img  src='espace_admin/product_images/".$product_images."'>
                        <section align='center'>
                        <p align='center'><strong>".$product_prix." € </strong></p>
                        <a href='details.php?details=".$product_id."' style=float:left' class='details'><button class='btn btn-deflaut'>Details</button></a>
@@ -104,7 +104,7 @@
                     echo "
                     <div class='single_produit'>
                     <h3>".$product_titre."</h3>
-                    <img src='espace_admin/product_images/".$product_images."'>
+                    <img  src='espace_admin/product_images/".$product_images."'>
                     <section align='center'>
                     <p align='center'><strong>".$product_prix." € </strong></p>
                     <a href='details.php?details=".$product_id."' style=float:left' class='details'><button class='btn btn-deflaut'>Details</button></a>

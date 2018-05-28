@@ -19,7 +19,7 @@ function seConnecter()
           $_SESSION['user_password'] = $info_user['user_password'];
           if ($info_user['user_email'] != $emailConnect || $info_user['user_password'] != $mdpConnect)
           {
-            $message = "mot de passe  ou email incorrect";
+            $message = "<a class='alert alert-danger'>mot de passe  ou email incorrect <span class='glyphicon glyphicon-remove-sign' style='color:red'> </a> ";
 
           }
           else
@@ -30,13 +30,14 @@ function seConnecter()
         }
         else
         {
-          $message = "email n'existe pas ";
+            $message = "<a class='alert alert-danger'>email n'existe pas <span class='glyphicon glyphicon-remove-sign' style='color:red'> </a> ";
+
         }
 
     }
     else
     {
-      $message = " tous les champs doivent etre completés";
+      $message = "<a class='alert alert-danger'>tous les champs doivent être completés <span class='glyphicon glyphicon-remove-sign' style='color:red'> </a> ";
     }
   }
   return $message;

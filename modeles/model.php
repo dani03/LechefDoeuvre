@@ -32,7 +32,8 @@ function getMarques()
 function getProducts()
   {
         $db = database();
-        $request = $db->query('SELECT * FROM produits ORDER BY RAND() LIMIT 0,6');
+        $request = $db->prepare('SELECT * FROM produits ORDER BY RAND() LIMIT 0,6');
+        $request->execute(array());
         $products = $request->fetchAll();
          return $products;
 
@@ -64,7 +65,7 @@ function getDetails()
           <div class='single_produit in_details'>
           <h3>".$product_titre."</h3>
           <section class='show_details'  >
-             <img src='espace_admin/product_images/".$product_images."' width='730px' height='730px'>
+             <img class='img-thumbnail img-responsive' src='espace_admin/product_images/".$product_images."' width='730px' height='730px'>
              <h4 class='describe'>".$product_descrip."</h4>
           </section>
           <p align='center'><strong> prix: " .$product_prix." € </strong></p>

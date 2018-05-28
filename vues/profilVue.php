@@ -1,68 +1,120 @@
 <?php
-require_once(__DIR__.'/../modeles/profilModel.php');
+// require_once(__DIR__.'/../modeles/profilModel.php');
 require("link.php");
 require_once("headPage.php");
 ?>
 
 
+<body data-spy="scroll" data-target=".navbar2" data-offset="50">
+  <div class=" container-fluid allPageProfil">
+      <div class="row">
+        <section class=" sectionNavbar2">
+          <nav class="navbar2" >
+            <ul class="nav nav-pills">
+              <li role="presentation" class="active"><a class="scroll" href="#enVente">mettre en vente</a></li>
+              <li role="presentation"><a href="#enLigne" class="scroll"> mes produits en ligne</a></li>
+              <li role="presentation"><a href="#supprimer" class="scroll"> supprimer mon compte</a></li>
+              <li role="presentation"><a href="#editer" class="scroll"> editer</a></li>
+            </ul>
+          </nav>
+        </section>
+        <section>
+          <div class="col-md-6 photoDeProfil">
+            <?php
+            $SessionUser = $_SESSION['user_email'];
+            $donnees = getImage($SessionUser);
+            foreach ($donnees as $donnee)
+            {
+              $image = $donnee['user_photo'];
+              echo "<img class='img-circle' src='vues/images/".$image."' width='150px' height='150px'";
+            }
+            ?>
+          </div>
+        </section>
+      <div class="parametres">
+            <div id="enVente" class="Inprofil">
+                <div class="row">
+                  <form  action="profil.php" method="post" enctype="multipart/form-data">
+                    <table class="table table-striped table-bordered">
+                      <tbody>
+                      <tr>
+                        <td align="center"><strong>titre du produit:</strong></td>
+                        <td><input class="form-control" type="text" name="product_titre" value="" placeholder="titre de produit"></td>
+                      </tr>
 
-<div class="allPageProfil">
+                      <tr>
+                        <td align="center"><strong>marque du produit:</strong></td>
+                        <td>
+                          <select class="form-control" name="product_marque">
+                            <option value="">choisir une marque</option>
+                            <?php
+                             insert_produit();
+                             ?>
+                          </select>
+                        </td>
+                      </tr>
 
-  <div class="photoDeProfil">
-    <?php
-    $SessionUser = $_SESSION['user_email'];
-    $donnees = getImage($SessionUser);
-    foreach ($donnees as $donnee)
-    {
-      $image = $donnee['user_photo'];
-      echo "<img src='vues/images/".$image."' width='150px' height='150px'";
-    }
-    ?>
-  </div>
-  <div class="dropdown">
-    <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Dropdown Example
-      <span class="caret"></span></button>
-    <ul class="dropdown-menu">
-       <li><a href="#">editer son profil</a></li>
-       <li><a href="#">voir ses articles</a></li>
-    </ul>
-  </div>
-  <a href="" id="addArticle" class="btn btn-info"> ajouter un article </a>
+                      <tr>
+                        <td align="center"><strong>categorie du produit:</strong></td>
+                        <td>
+                          <select class="form-control" name="product_cat" width="70%">
+                            <option>choisir une categorie</option>;
+                            <?php
+                               ajouterCategorie();
+                             ?>
+                          </select>
+                        </td>
 
-  <!-- <div class="formulaireUser" id="formulairePro">
-   <h2> ajouter un produit sur la plateforme</h2>
-     <form  action="profilVue.php" method="post" enctype="multipart/form-data">
-          <input class="form-control" type="text" name="product_titreProfil" value="" placeholder="titre de produit"> <br>
-          <select class="form-control" name="product_marqueProfil">
-               <option value="">choisir une marque</option>
+                      </tr>
 
-             </select><br>
+                      <tr>
+                        <td align="center"><strong>publier en tant que:</strong></td>
+                        <td><input class="form-control" type="email" name="product_published_by" value="<?= $SessionUser ?>" placeholder="ex: administrateur" ></td>
+                      </tr>
 
+                      <tr>
+                        <td align="center"><strong>description du produit:</strong></td>
+                        <td><textarea name="product_descrip" rows="8" cols="80" required=""></textarea></td>
 
+                      </tr>
 
+                      <tr>
+                        <td align="center"><strong>image du produit:</strong></td>
+                        <td><input class="form-control" type="file" name="product_image" value="" placeholder="ajouter une image" required=""></td>
+                      </tr>
 
+                      <tr>
+                        <td align="center"><strong>prix du produit:</strong></td>
+                        <td><input class="form-control" type="number" name="product_prix" value="" placeholder="ajouter une prix" required=""></td>
+                      </tr>
+                      <tr>
+                        <td align="center"><strong>quantité :</strong></td>
+                        <td><input class="form-control" type="number" name="product_quantite" value="" placeholder="ajouté une quantité"></td>
 
-             <select class="form-control" name="product_catProfil" width="70%"><br>
-               <option>choisir une categorie</option> -->
-               <!-- script php  -->
-             <!-- </select><br>
+                      </tr>
 
-             <input class="form-control" type="text" name="product_published_byProfil" value="" placeholder="ex: administrateur"><br>
-             <textarea name="product_descripProfil" rows="2" cols="40"></textarea><br>
-             <input class="form-control" type="file" name="product_imageProfil" value="" placeholder="ajouter une image" ><br>
+                      <tr>
+                        <td align="center"><strong>mots clés du produit:</strong></td>
+                        <td><input class="form-control" type="text" name="product_motcles" value="" placeholder="mots clés"></td>
+                      </tr>
+                      </tbody>
+                    </table>
+                      <h2 align="center"><input class="btn btn-primary" type="submit" name="submited_insert" value="ajouter le produit"></h2>
+                  </form>
+                  <?php ajouterProduit(); ?>
+                </div>
+            </div>
+            <div id="enLigne" class="Inprofil" >
+                <!--  mettre la fonction qui recuperer les acrticles d'un particulier sur le site-->
+            </div>
 
-             <input class="form-control" type="number" name="product_prixProfil" value="" placeholder="ajouter une prix"><br>
+            <div id="supprimer" class="Inprofil">
 
-           <input class="form-control" type="number" name="product_quantiteProfil" value="" placeholder="ajouté une quantité"><br>
+            </div>
+            <div id="editer" class="Inprofil" color="red">
 
-          <input class="form-control" type="text" name="product_motclesProfil" value="" placeholder="ajouter des mots clés"><br>
-
-
-         <h2 align="center"><input class="btn btn-primary" type="submit" name="submited_insertProfil" value="ajouter le produit"></h2>
-
-      </form>
-
+        </div>
       </div>
-   </div> -->
-
-  <!--parametre  -->
+  </div>
+  </div>
+</body>

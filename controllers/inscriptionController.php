@@ -3,7 +3,7 @@
 
   if (isset($_POST['submitedInscription']))
   {
-    $erreur = '<a href="connexion.php" class="alert alert-success">inscription reussi <span class="glyphicon glyphicon-ok-sign" style="color:green"></span></a> ';
+    $erreur = '<a href="connexion.php" class="alert alert-success">inscription reussi cliquez ici pour vous connecter <span class="glyphicon glyphicon-ok-sign" style="color:green"></span></a> ';
     $user_name = htmlspecialchars($_POST['firstname']);
     $mail = htmlspecialchars($_POST['email']);
     $mot_de_passe = sha1($_POST['pass']);
@@ -64,6 +64,6 @@
     {
       $erreur ="tous les champs requis ne sont pas completés";
     }
-    
+
     return $erreur;
   }

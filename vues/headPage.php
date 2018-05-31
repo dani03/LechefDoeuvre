@@ -16,7 +16,7 @@ require "link.php"; ?>
 
 
             <li><a  class="panel " href="contact.php"><span class="glyphicon glyphicon-envelope" style="color:blue"></span> contactez nous</a></li>
-            <?php if(!isset($_SESSION['user_email']))
+            <?php if(!isset($_SESSION['user_email']) || isset($_POST['deleteYes']))
             {
               echo '<li><a  class="panel" href="connexion.php"> <span class="glyphicon glyphicon-user" style="color:blue"></span> se connecter</a></li>
               <li><a class="panel" href="inscription.php"> <span class="glyphicon glyphicon-pencil" style="color:blue"></span> s\'inscrire</a></li>';

@@ -50,7 +50,7 @@ require_once ("link.php");
             <li><!-- Link with dropdown items -->
                 <a  style="text-align:center" href="#homeSubmenu" data-toggle="collapse" aria-expanded="false">produits</a>
                 <ul class="collapse list-unstyled" id="homeSubmenu" style="text-align:center">
-                    <li><a href="index.php?insert_product">ajouter nv produit</a></li>
+
                     <li><a href="index.php?nvCategorie">ajouter nv categorie</a></li>
                     <li><a href="index.php?toutesCategories">voir toutes les catégories</a></li>
                     <li><a href="index.php?nvMarque">ajouter nv marque</a></li>
@@ -65,7 +65,7 @@ require_once ("link.php");
 </div>
 
 <div class="mainAdmin">
-  
+  <?php include_once("insert_product.php") ?>;
 </div>
   </body>
 </html>

@@ -1,5 +1,5 @@
 <?php
-require("../modeles/insert_produitModel.php");
+// require("../modeles/insert_produitModel.php");
 require("../vues/link.php");
 
  ?>

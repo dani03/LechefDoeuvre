@@ -86,3 +86,88 @@ function ajouterProduit()
       }
   }
 }
+// on cree la fonction qui permet de modifier son profil
+
+function takeUser($user)
+{
+  $db = database();
+  $request = $db->prepare('SELECT * FROM utilisateurs WHERE user_email=:email');
+  $request->execute(array(
+    'email' => $user
+  ));
+  $utilisateur = $request->fetchAll();
+    return $utilisateur;
+}
+
+// function updateUser($name, $password, $email, $pays, $ville, $contact, $photo, $adresse, $user)
+// {
+//
+//   $db = database();
+//   $update = $db->prepare("UPDATE utilisateurs SET user_name = :nvName, user_password= :password, user_email= :nvEmail, user_pays= :nvPays, user_ville= :nvVille, user_contact= :nvContact, user_photo= :nvPhoto, user_adresse= :nvAdresse WHERE user_id= '.$user.'");
+//    if ( $update->execute(
+//     array(
+//           'nvName' => $name,
+//           'password' => $password,
+//           'nvEmail' => $email,
+//           'nvPays' => $pays,
+//           'nvVille' => $ville,
+//           'nvContact' => $contact,
+//           'nvPhoto' => $photo,
+//           'nvAdresse' => $adresse,
+//
+//         )
+//       )
+//     ) {
+//         echo 'O';
+//         $message = "<p class='alert alert-success'> votre profil à bien été modifié</p>";
+//    }
+//    else {
+//      echo "non";
+//       $message = "<p class='alert alert-danger'> une ereur c'est produite</p>";
+//    }
+//   return $message;
+// }
+
+// pour changer les mot de passe
+
+// function changePass($email, $actuelPassword)
+// {
+//   $db = database();
+//   $request = $db->prepare("SELECT * FROM utilisateurs WHERE user_password = :motDePasse AND user_email= :email");
+//   $request->execute(array(
+//     'motDePasse' => $actuelPassword,
+//      'user_email' => $email
+//   ));
+//
+// }
+
+function ID_USER($id)
+{
+  $db = database();
+  $request = $db->prepare('SELECT * FROM utilisateurs WHERE user_id= ?');
+  $request->execute(array($id));
+  $user = $request->fetchAll();
+  return $user;
+}
+
+function updateUser($userName, $id)
+{
+  $bdd = database();
+  $updating = $bdd->prepare('UPDATE  utilisateurs SET user_name = :user_name WHERE id ='.$id.'');
+   $response = $updating->execute(array(
+    'user_name' => $userName
+  ));
+  return $response ;
+}
+// supprimer un compte
+function deleteAcount()
+{
+  $db = database();
+   $_SESSION['user_email'];
+
+  $requete = $db->prepare('DELETE FROM utilisateurs WHERE user_email = ?');
+    $requete->execute(array($_SESSION['user_email']));
+    session_destroy();
+    header("location: index.php");
+
+}

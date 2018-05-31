@@ -8,6 +8,9 @@ require("controllers/inscriptionController.php");
 
 <div class="container " align="center">
   <h1 align="center">inscription</h1>
+  <p><?php if(isset($erreur)){
+    echo "<h3 class='blue alert'>$erreur</h3>" ;
+  }?>
   <div class="row">
     <div class="inscriptionBG">
       <form class="formulaire" action="inscription.php" method="post" id='contact-formInscrip' role='form' enctype="multipart/form-data">
@@ -62,11 +65,9 @@ require("controllers/inscriptionController.php");
                 <p class="blue"><strong>*ces champs sont requis</strong> </p>
           </div>
           <div class="col-md-6">
-          <input type="submit" class="envoyer btn btn-primary" name="submitedInscription" value="insciption">
+              <input type="submit" class="envoyer btn btn-primary" name="submitedInscription" value="insciption">
           </div>
-          <p><?php if(isset($erreur)){
-            echo "<h3 class='blue'>'.$erreur.'</h3>" ;
-          }?>
+
           </p>
         </div>
         <p>il est acctuellement <?php echo date('H:i')?></p>

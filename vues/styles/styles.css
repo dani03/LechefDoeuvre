@@ -197,28 +197,39 @@ h3
 }
 #enLigne
 {
- background-color: red;
+ /*background-color: red;*/
 }
 
 #supprimer
 {
-  background-color: midnightblue
+  /*background-color: midnightblue*/
 }
 #editer
 {
-  background-color: green;
+  /*background-color: green;*/
 }
 #enVente
 {
   top :20%;
-  background-color: yellow;
+  /*background-color: yellow;*/
   height: auto;
+}
+.compteDelete .btn
+{
+  display: flex;
+  justify-content: space-between;
 }
 .parametres
 {
   top: 28px;
 }
-
+.navTwo
+{
+  position: fixed;
+  background-color:#fff;
+  top: 0;
+  width: 100%;
+}
 .container-fluid
 {
 

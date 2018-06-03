@@ -16,12 +16,12 @@ require "vues/headPage.php";
         <div class="row">
           <div class="col-md-6">
             <label for="firstname"> pseudo/nom: <span class="blue">*</span></label>
-            <input type="text" name="firstnameConnect" id="firstname" class="form-control" value='' placeholder="votre pseudo/nom" >
+            <input type="text" name="firstnameConnect" id="firstnameC" class="form-control" value='' placeholder="votre pseudo/nom" >
             <p class="comments"></p>
           </div>
           <div class="col-md-6">
             <label for="email"> email :<span class="blue">*</span></label>
-            <input type="email" name="emailConnect" id="email" class="form-control" value="" placeholder="visiteur@gmail.com" >
+            <input type="email" name="emailConnect" id="emailC" class="form-control" value="" placeholder="visiteur@gmail.com" >
             <p class="comments"></p>
           </div>
           <div class="col-md-6">

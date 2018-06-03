@@ -1,0 +1,48 @@
+// $firstname = $email = $name = $message = $phone = "";
+// $firstnameError = $emailError = $nameError = $messageError = $phoneError = "";
+// $isSuccess = false;
+
+
+// $firstname  =security($_POST["firstname"]);
+// $name =  security($_POST["name"]);
+// $email =  security($_POST["email"]);
+//   $phone =security($_POST["phone"]);
+//  $message =  security($_POST["message"]);
+//
+//  if (isset($_POST['contactValidation'])) {
+//         if (!empty($firstname)) {
+//             if(!empty($name))
+//             {
+//               if(!empty($message))
+//               {
+//                 if(isEmail($email))
+//                 {
+//                   if (isPhone($phone) && !empty($phone))
+//                   {
+//                     $isSuccess = true;
+//                   }
+//                   else
+//                   {
+//                       $phoneError = "votre numero est invalide";
+//                   }
+//                 }
+//                 else
+//                 {
+//                   $emailError = "votre email est invalide";
+//                 }
+//               }
+//               else
+//               {
+//                 $messageError = "le message est requis";
+//               }
+//             }
+//             else
+//             {
+//               $nameError = "votre nom est requis";
+//             }
+//         }
+//         else
+//         {
+//           $firstnameError = "votre prenom !!";
+//         }
+//  }

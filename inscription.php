@@ -17,12 +17,12 @@ require("controllers/inscriptionController.php");
         <div class="row" style="margin-left:-39px">
           <div class="">
             <label for="firstname"> pseudo/nom: <span class="blue">*</span></label>
-            <input type="text" name="firstname" id="firstname" class="form-control" value='' placeholder="votre pseudo/nom" >
+            <input type="text" name="firstname" id="firstnameI" class="form-control" value='' placeholder="votre pseudo/nom" >
             <p class="comments"></p>
           </div>
           <div class="">
             <label for="email"> email :<span class="blue">*</span></label>
-            <input type="email" name="email" id="email" class="form-control" value="" placeholder="visiteur@gmail.com" >
+            <input type="email" name="email" id="emailI" class="form-control" value="" placeholder="visiteur@gmail.com" >
             <p class="comments"></p>
           </div>
           <div class="">

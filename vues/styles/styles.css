@@ -287,13 +287,18 @@ input[type=file]
 }
 .mainAdmin
 {
-  background-color: yellow;
-  width: 60%;
+  /*background-color: yellow;*/
+  width: 34%;
 }
 .allPageProfil
 {
   height: 800px;
   width: 100%;
+}
+.adminTable
+{
+
+  width: 29%;
 }
 /*page contact */
 

@@ -1,17 +1,12 @@
 <?php
-// require("../modeles/insert_produitModel.php");
+require("../modeles/insert_produitModel.php");
 require("../vues/link.php");
 
  ?>
   <body>
-    <div class="container-fluid">
+    <div class="container-fluid adminTable">
        <form  action="insert_product.php" method="post" enctype="multipart/form-data">
          <table class="table table-striped table-bordered">
-           <thead align="center">
-             <tr>
-               <td><h2>inserez des produits</h2></td>
-             </tr>
-           </thead>
            <tbody>
              <td align="center"><strong>titre du produit:</strong></td>
              <td><input class="form-control" type="text" name="product_titre" value="" placeholder="titre de produit"></td>
